@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+      "target": "es2019",
+      "lib": ["es2019"],
+      "module": "commonjs",
+      "esModuleInterop": true,
+      "moduleResolution": "node",
+      "declaration": true,
+      "sourceMap": true,
+      "newLine": "LF",
+      "stripInternal": true,
+      "strict": true,
+      "experimentalDecorators": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "jsx": "react",
+      "rootDir": "src",
+      "outDir": "lib",
+  },
+  "exclude": ["./node_modules/*", "./lib/*", "./bin/*"]
+}

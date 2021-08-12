@@ -1,2 +1,5 @@
 # create
-@ts-defold
+
+```sh
+npm init @ts-defold
+```

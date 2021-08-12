@@ -1,0 +1,44 @@
+{
+  "name": "@ts-defold/create",
+  "version": "0.1.0",
+  "description": "@ts-defold scaffolding and cli utility",
+  "main": "lib/index.js",
+  "bin": "bin/create.js",
+  "files": [
+    "lib/**/*.{js,d.ts}",
+    "bin/**/*.js"
+  ],
+  "scripts": {
+    "prepublishOnly": "npm run lint && npm run build",
+    "build": "tsc",
+    "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ts-defold/create.git"
+  },
+  "keywords": [
+    "typescript",
+    "lua",
+    "defold"
+  ],
+  "author": "Justin Walsh (@thejustinwalsh)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ts-defold/create/issues"
+  },
+  "homepage": "https://github.com/ts-defold/create#readme",
+  "devDependencies": {
+    "@types/jest": "^26.0.14",
+    "@types/node": "^13.7.7",
+    "@typescript-eslint/eslint-plugin": "^4.4.0",
+    "@typescript-eslint/parser": "^4.4.0",
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "jest": "^26.5.3",
+    "prettier": "^2.3.2",
+    "ts-jest": "^26.4.1",
+    "typescript": "^4.3.5"
+  }
+}

@@ -4,9 +4,7 @@
 		{
 			"type": "npm",
 			"script": "build",
-			"group": {
-				"kind": "build",
-			},
+			"group": "build",
 			"problemMatcher": [],
 			"label": "build",
 		},

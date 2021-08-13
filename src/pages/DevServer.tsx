@@ -1,10 +1,16 @@
 import { Box, Text } from 'ink';
+import Spinner from 'ink-spinner';
 import React from 'react';
 
 export default function DevServer(): JSX.Element {
   return (
-    <Box flexDirection="column">
-      <Text color="whiteBright">🚀 watching for changes...</Text>
+    <Box paddingTop={1} flexDirection="column">
+      <Text>
+        <Text color="cyanBright">
+          <Spinner type="hamburger" />
+        </Text>
+        {'  Watching for changes'}
+      </Text>
       <Box flexDirection="column" marginTop={1}>
         <Box>
           <Text color="green">./src/player.script.ts</Text>
@@ -16,7 +22,10 @@ export default function DevServer(): JSX.Element {
         </Box>
         <Box>
           <Text color="yellow">./src/hooks.editor_script.ts</Text>
-          <Text color="gray"> ...</Text>
+          <Text color="gray">
+            {' '}
+            <Spinner type="simpleDots" />
+          </Text>
         </Box>
       </Box>
     </Box>

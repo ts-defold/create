@@ -28,10 +28,10 @@ export default function Help(): JSX.Element {
   }, []);
 
   return (
-    <>
+    <Box alignItems="center" flexDirection="column">
       <Gradient colors={gradient}>
         <BigText
-          text="@TS-DEFOLD"
+          text="TS-DEFOLD"
           font="simple3d"
           letterSpacing={0}
           space={false}
@@ -40,6 +40,6 @@ export default function Help(): JSX.Element {
       <Box flexDirection="column" paddingTop={1}>
         <Text>{help}</Text>
       </Box>
-    </>
+    </Box>
   );
 }

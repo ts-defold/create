@@ -13,7 +13,6 @@ yargs
   .options({
     template: {
       describe: 'Starting template for project',
-      default: 'ts-defold',
       type: 'string',
     },
     serve: {
@@ -43,4 +42,8 @@ yargs
     }
   )
   .version()
+  .epilogue(
+    'For more information on templates, and the dev server see:\n' +
+      'https://github.com/ts-defold/create#readme'
+  )
   .help().argv;

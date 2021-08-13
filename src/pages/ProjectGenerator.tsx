@@ -7,7 +7,7 @@ export default function ProjectGenerator(): JSX.Element {
   const { dir } = useData() as { dir: string };
 
   return (
-    <Box flexDirection="column" alignItems="center">
+    <Box paddingTop={1} flexDirection="column" alignItems="center">
       <Box
         flexDirection="column"
         alignItems="center"

@@ -11,6 +11,7 @@
   "scripts": {
     "prepublishOnly": "npm run lint && npm run build",
     "build": "tsc",
+    "dev": "npm run build && DEV=true node ./bin/create.js",
     "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx ."
   },
   "repository": {
@@ -50,6 +51,7 @@
     "ink": "^3.0.9",
     "ink-big-text": "^1.2.0",
     "ink-gradient": "^2.0.0",
+    "ink-spinner": "^4.0.2",
     "react": "^17.0.2",
     "yargs": "^17.1.0"
   }

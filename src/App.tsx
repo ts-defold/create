@@ -14,7 +14,7 @@ type Props = {
 const Demo = ({ path, data }: Props) => {
   return (
     <>
-      <Box paddingTop={1} flexDirection="column">
+      <Box width={80} flexDirection="column">
         <Switch route={path} data={data}>
           <Route path="/help">
             <Help />

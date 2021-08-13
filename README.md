@@ -2,7 +2,7 @@
 > npm init @ts-defold &lt;project-directory&gt;
 
 <p align="center">
-  <img width="627" height="273" src="docs/hero.png">
+  <img width="418" height="306" src="docs/hero.png">
 </p>
 
 ```sh

@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function DevServer(): JSX.Element {
   return (
-    <Box paddingTop={1} flexDirection="column">
+    <Box flexDirection="column">
       <Text>
         <Text color="cyanBright">
           <Spinner type="hamburger" />

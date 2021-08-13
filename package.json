@@ -34,6 +34,7 @@
     "@types/ink-big-text": "^1.2.1",
     "@types/ink-gradient": "^2.0.1",
     "@types/jest": "^26.0.14",
+    "@types/marked-terminal": "^3.1.2",
     "@types/node": "^13.7.7",
     "@types/react": "^17.0.17",
     "@types/yargs": "^17.0.2",
@@ -51,6 +52,7 @@
     "ink": "^3.0.9",
     "ink-big-text": "^1.2.0",
     "ink-gradient": "^2.0.0",
+    "ink-markdown": "^1.0.1",
     "ink-spinner": "^4.0.2",
     "react": "^17.0.2",
     "yargs": "^17.1.0"

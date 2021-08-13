@@ -5,7 +5,7 @@ import App from './App';
 
 yargs
   .scriptName('')
-  .usage('Usage: npm init @ts-defold <project-directory> [options]')
+  .usage('Usage: **npm** init @ts-defold <project-directory> `[options]`')
   .positional('project-directory', {
     describe: 'Empty directory to initialize project in',
     type: 'string',
@@ -43,7 +43,7 @@ yargs
   )
   .version()
   .epilogue(
-    'For more information on templates, and the dev server see:\n' +
-      'https://github.com/ts-defold/create#readme'
+    'For more information on `templates` and the `dev server` see:\n' +
+      'https://github.com/ts-defold/create#readme\n'
   )
   .help().argv;

@@ -2,7 +2,6 @@ import React from 'react';
 import { Box } from 'ink';
 import Gradient from 'ink-gradient';
 import BigText from 'ink-big-text';
-import { useData } from '../components/Router';
 import Markdown from '../components/Markdown';
 
 const makeGradient = () => {
@@ -21,9 +20,11 @@ const makeGradient = () => {
   }));
 };
 
-export default function Help(): JSX.Element {
-  const { help } = useData() as { help: string };
+type Props = {
+  text: string;
+};
 
+export default function Help({ text }: Props): JSX.Element {
   return (
     <Box alignItems="center" flexDirection="column">
       <Gradient colors={makeGradient()}>
@@ -35,7 +36,7 @@ export default function Help(): JSX.Element {
         />
       </Gradient>
       <Box flexDirection="column" paddingTop={1}>
-        <Markdown>{help}</Markdown>
+        <Markdown>{text}</Markdown>
       </Box>
     </Box>
   );

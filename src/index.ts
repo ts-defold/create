@@ -29,11 +29,12 @@ yargs
         if (argv.serve) {
           App(`/serve`);
         } else {
-          App(`/project/${argv.template}`, {
+          App(`/project`, {
             dir: path.resolve(
               process.env.INIT_CWD ?? process.cwd(),
               argv._[0].toString()
             ),
+            template: argv.template,
           });
         }
       } else {

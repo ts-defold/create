@@ -12,7 +12,7 @@
         "<node_internals>/**"
       ],
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run-script", "dev", "--", "."],
+      "runtimeArgs": ["run-script", "dev", "--", "../project-man"],
       "sourceMaps": true,
       "console": "integratedTerminal"
     }

@@ -1,2 +1,7 @@
 /// <reference types="react" />
-export default function Project(): JSX.Element;
+declare type Props = {
+    dir: string;
+    template: string;
+};
+export default function Project({ dir, template }: Props): JSX.Element;
+export {};

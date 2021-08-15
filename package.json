@@ -39,6 +39,7 @@
     "@types/node-fetch": "^2.5.12",
     "@types/nodegit": "^0.27.3",
     "@types/react": "^17.0.17",
+    "@types/react-router": "^5.1.16",
     "@types/semver": "^7.3.8",
     "@types/yargs": "^17.0.2",
     "@typescript-eslint/eslint-plugin": "^4.4.0",
@@ -63,6 +64,7 @@
     "nodegit": "^0.27.0",
     "react": "^17.0.2",
     "react-final-form": "^6.5.3",
+    "react-router": "^5.2.0",
     "semver": "^7.3.5",
     "yargs": "^17.1.0"
   },

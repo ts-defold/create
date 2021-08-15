@@ -1,12 +1,13 @@
 import React, { useState, useMemo } from 'react';
 import { Box, Text, useApp } from 'ink';
 import Spinner from 'ink-spinner';
+import { useParams, useHistory } from 'react-router';
 import { Form, Field } from 'react-final-form';
 import semver from 'semver';
 import InputText from '../components/InputText';
 import InputError from '../components/InputError';
 import Markdown from '../components/Markdown';
-import { useArgs, useData } from '../components/Router';
+import { Wizard, Step } from '../components/Wizard';
 import useGitConfig from '../hooks/useGitConfig';
 import useProjectDir from '../hooks/useProjectDir';
 import useFetchTemplate from '../hooks/useFetchTemplate';
@@ -31,12 +32,17 @@ const games = [
   'MMORPG',
 ];
 
-export default function Project(): JSX.Element {
+type Props = {
+  dir: string;
+  template: string;
+};
+
+export default function Project({ dir, template }: Props): JSX.Element {
   const [activeField, setActiveField] = useState(0);
   const [projectConfigured, setProjectConfigured] = useState(false);
+  const { step } = useParams<{ step?: string }>();
+  const history = useHistory();
   const { exit } = useApp();
-  const [template] = useArgs();
-  const { dir } = useData() as { dir: string };
   const { user: author, email } = useGitConfig();
   const project = useProjectDir(dir);
   const archive = useFetchTemplate(template);
@@ -93,9 +99,17 @@ export default function Project(): JSX.Element {
   }, [author, email, project]);
 
   const onSubmit = async (values: Values) => {
+    function timeout(ms: number) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
     void values;
     // TODO: Fetch template archive, extract, and use values to update package.json
     setProjectConfigured(true);
+    for (let i = 1; i <= 4; i++) {
+      await timeout(1000);
+      history.push(`/project/${i}`);
+    }
     setTimeout(() => exit(), 3000);
   };
 
@@ -262,23 +276,31 @@ export default function Project(): JSX.Element {
         )}
       />
       {projectConfigured && (
-        <Box flexDirection="column">
-          <Text>
-            <Text color="cyanBright">
-              <Spinner type="hamburger" />
-            </Text>{' '}
-            Downloading template
-          </Text>
-          <Text>
-            <Text color="red">𐄂</Text> Extracting template
-          </Text>
-          <Text>
-            <Text color="red">𐄂</Text> Applying Configuration
-          </Text>
-          <Text>
-            <Text color="red">𐄂</Text> Initializing Git Repository
-          </Text>
-        </Box>
+        <Wizard step={step ? parseInt(step) : -1}>
+          <Step index={1} name="Download Template">
+            <Text>
+              <Text color="cyanBright">
+                <Spinner type="hamburger" />
+              </Text>{' '}
+              Downloading template
+            </Text>
+          </Step>
+          <Step index={2} name="Extract Template">
+            <Text>
+              <Text color="red">𐄂</Text> Extracting template
+            </Text>
+          </Step>
+          <Step index={3} name="Apply Config">
+            <Text>
+              <Text color="red">𐄂</Text> Applying Configuration
+            </Text>
+          </Step>
+          <Step index={4} name="Init Git">
+            <Text>
+              <Text color="red">𐄂</Text> Initializing Git Repository
+            </Text>
+          </Step>
+        </Wizard>
       )}
     </Box>
   );

@@ -1,2 +1,6 @@
 /// <reference types="react" />
-export default function Help(): JSX.Element;
+declare type Props = {
+    text: string;
+};
+export default function Help({ text }: Props): JSX.Element;
+export {};

@@ -45,7 +45,7 @@ export default function useFetchTemplate(template: string): Return {
       if (req.status === 200) {
         const json = (await req.json()) as GitHubSearch;
         const results = json.items.filter((item) =>
-          item.name.startsWith('tsd-template-')
+          item.name.startsWith('tsd-template')
         );
 
         const exact = results.find((item) => item.name === slug);

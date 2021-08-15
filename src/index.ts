@@ -29,7 +29,7 @@ yargs
         if (argv.serve) {
           App(`/serve`);
         } else {
-          App(`/project-generator/${argv.template}`, {
+          App(`/project/${argv.template}`, {
             dir: path.resolve(
               process.env.INIT_CWD ?? process.cwd(),
               argv._[0].toString()

@@ -1,37 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import chalk from 'chalk';
+import React from 'react';
 import { Box } from 'ink';
-import Markdown from 'ink-markdown';
 import Gradient from 'ink-gradient';
 import BigText from 'ink-big-text';
-
 import { useData } from '../components/Router';
+import Markdown from '../components/Markdown';
 
-const GRADIENT = [
-  { h: 0, s: 1, v: 1, a: 1 },
-  { h: 90, s: 1, v: 1, a: 1 },
-  { h: 180, s: 1, v: 1, a: 1 },
-  { h: 270, s: 1, v: 1, a: 1 },
-  { h: 360, s: 1, v: 1, a: 1 },
-];
+const makeGradient = () => {
+  const GRADIENT = [
+    { h: 0, s: 1, v: 1, a: 1 },
+    { h: 90, s: 1, v: 1, a: 1 },
+    { h: 180, s: 1, v: 1, a: 1 },
+    { h: 270, s: 1, v: 1, a: 1 },
+    { h: 360, s: 1, v: 1, a: 1 },
+  ];
+
+  const theta = new Date().getSeconds() * 6;
+  return GRADIENT.map((stop, index) => ({
+    ...stop,
+    h: (theta + index * 90) % 360,
+  }));
+};
 
 export default function Help(): JSX.Element {
-  const [gradient, setGradient] = useState(GRADIENT);
   const { help } = useData() as { help: string };
-
-  useEffect(() => {
-    const theta = new Date().getSeconds() * 6;
-    setGradient(
-      GRADIENT.map((stop, index) => ({
-        ...stop,
-        h: (theta + index * 90) % 360,
-      }))
-    );
-  }, []);
 
   return (
     <Box alignItems="center" flexDirection="column">
-      <Gradient colors={gradient}>
+      <Gradient colors={makeGradient()}>
         <BigText
           text="TS-DEFOLD"
           font="simple3d"
@@ -40,15 +35,7 @@ export default function Help(): JSX.Element {
         />
       </Gradient>
       <Box flexDirection="column" paddingTop={1}>
-        <Markdown
-          html={chalk.cyan}
-          link={chalk.blueBright}
-          strong={chalk.green}
-          em={chalk.yellowBright}
-          codespan={chalk.dim}
-        >
-          {help}
-        </Markdown>
+        <Markdown>{help}</Markdown>
       </Box>
     </Box>
   );

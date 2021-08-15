@@ -36,7 +36,10 @@
     "@types/jest": "^26.0.14",
     "@types/marked-terminal": "^3.1.2",
     "@types/node": "^13.7.7",
+    "@types/node-fetch": "^2.5.12",
+    "@types/nodegit": "^0.27.3",
     "@types/react": "^17.0.17",
+    "@types/semver": "^7.3.8",
     "@types/yargs": "^17.0.2",
     "@typescript-eslint/eslint-plugin": "^4.4.0",
     "@typescript-eslint/parser": "^4.4.0",
@@ -49,12 +52,21 @@
     "typescript": "^4.3.5"
   },
   "dependencies": {
+    "final-form": "^4.20.2",
     "ink": "^3.0.9",
     "ink-big-text": "^1.2.0",
     "ink-gradient": "^2.0.0",
     "ink-markdown": "^1.0.1",
     "ink-spinner": "^4.0.2",
+    "ink-text-input": "github:thejustinwalsh/ink-text-input#feat/tab-complete",
+    "node-fetch": "^2.6.1",
+    "nodegit": "^0.27.0",
     "react": "^17.0.2",
+    "react-final-form": "^6.5.3",
+    "semver": "^7.3.5",
     "yargs": "^17.1.0"
+  },
+  "overrides": {
+    "react": "^17.0.2"
   }
 }

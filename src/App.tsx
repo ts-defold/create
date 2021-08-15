@@ -3,8 +3,8 @@ import { Box, render } from 'ink';
 
 import { Switch, Route } from './components/Router';
 import Help from './pages/Help';
-import ProjectGenerator from './pages/ProjectGenerator';
-import DevServer from './pages/DevServer';
+import Project from './pages/Project';
+import Serve from './pages/Serve';
 
 type Props = {
   path?: string;
@@ -18,11 +18,11 @@ const CLI = ({ path, data }: Props) => {
         <Route path="/help">
           <Help />
         </Route>
-        <Route path="/project-generator">
-          <ProjectGenerator />
+        <Route path="/project">
+          <Project />
         </Route>
         <Route path="/serve">
-          <DevServer />
+          <Serve />
         </Route>
       </Switch>
     </Box>

@@ -10,7 +10,8 @@
   ],
   "scripts": {
     "prepublishOnly": "npm run lint && npm run build",
-    "build": "tsc",
+    "build": "npm run clean && tsc",
+    "clean": "tsc --build --clean",
     "dev": "npm run build && DEV=true node ./bin/create.js",
     "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx ."
   },

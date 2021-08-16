@@ -52,12 +52,24 @@ type StepProps = React.PropsWithChildren<{
   complete?: boolean;
 }>;
 
-export function Step({ children, active, complete }: StepProps): JSX.Element {
+export function Step({
+  children,
+  index,
+  active,
+  complete,
+}: StepProps): JSX.Element {
   const childrenWithProps = React.Children.map(children, (child) => {
     if (React.isValidElement(child)) {
-      return React.cloneElement(child, { active, complete });
+      return React.cloneElement(child, { step: index, active, complete });
     }
     return child;
   });
   return <>{childrenWithProps}</>;
 }
+
+export type WizardSteps = {
+  step?: number;
+  active?: boolean;
+  complete?: boolean;
+  onCompletion?: (success: boolean) => void;
+};

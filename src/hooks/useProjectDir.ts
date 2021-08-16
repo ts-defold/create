@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { useEffect, useState } from 'react';
 
-type Return = {
+export type ProjectDirInfo = {
   isLoading: boolean;
   exists: boolean;
   isEmpty: boolean;
@@ -10,8 +10,8 @@ type Return = {
   name: string;
 };
 
-export default function useProjectDir(dir: string): Return {
-  const [results, setResults] = useState<Return>({
+export default function useProjectDir(dir: string): ProjectDirInfo {
+  const [results, setResults] = useState<ProjectDirInfo>({
     isLoading: true,
     exists: false,
     isEmpty: false,

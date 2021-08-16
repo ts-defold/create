@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import fetch from 'node-fetch';
 
-type Return = {
+export type TemplateInfo = {
   isLoading: boolean;
   found: boolean;
   match: string;
@@ -18,8 +18,8 @@ type GitHubSearch = {
   }>;
 };
 
-export default function useFetchTemplate(template: string): Return {
-  const [archive, setArchive] = useState<Return>({
+export default function useFetchTemplate(template: string): TemplateInfo {
+  const [archive, setArchive] = useState<TemplateInfo>({
     isLoading: true,
     found: false,
     match: '',

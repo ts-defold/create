@@ -1,4 +1,4 @@
-declare type Return = {
+export declare type TemplateInfo = {
     isLoading: boolean;
     found: boolean;
     match: string;
@@ -6,5 +6,4 @@ declare type Return = {
     name: string;
     rate?: number;
 };
-export default function useFetchTemplate(template: string): Return;
-export {};
+export default function useFetchTemplate(template: string): TemplateInfo;

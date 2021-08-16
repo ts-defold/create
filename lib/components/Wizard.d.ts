@@ -10,5 +10,11 @@ declare type StepProps = React.PropsWithChildren<{
     active?: boolean;
     complete?: boolean;
 }>;
-export declare function Step({ children, active, complete }: StepProps): JSX.Element;
+export declare function Step({ children, index, active, complete, }: StepProps): JSX.Element;
+export declare type WizardSteps = {
+    step?: number;
+    active?: boolean;
+    complete?: boolean;
+    onCompletion?: (success: boolean) => void;
+};
 export {};

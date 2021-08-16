@@ -2,9 +2,9 @@ import React, { useMemo } from 'react';
 import { MemoryRouter, Switch, Route } from 'react-router';
 import { Box, render } from 'ink';
 
-import Help from './pages/Help';
-import Project from './pages/Project';
-import Serve from './pages/Serve';
+import Help from './commands/Help';
+import Project from './commands/Project';
+import Serve from './commands/Serve';
 
 type Props = {
   path: string;

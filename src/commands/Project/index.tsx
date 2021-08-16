@@ -4,13 +4,13 @@ import Spinner from 'ink-spinner';
 import { useParams, useHistory } from 'react-router';
 import { Form, Field } from 'react-final-form';
 import semver from 'semver';
-import InputText from '../components/InputText';
-import InputError from '../components/InputError';
-import Markdown from '../components/Markdown';
-import { Wizard, Step } from '../components/Wizard';
-import useGitConfig from '../hooks/useGitConfig';
-import useProjectDir from '../hooks/useProjectDir';
-import useFetchTemplate from '../hooks/useFetchTemplate';
+import InputText from '../../components/InputText';
+import InputError from '../../components/InputError';
+import Markdown from '../../components/Markdown';
+import { Wizard, Step } from '../../components/Wizard';
+import useGitConfig from '../../hooks/useGitConfig';
+import useProjectDir from '../../hooks/useProjectDir';
+import useFetchTemplate from '../../hooks/useFetchTemplate';
 
 type Values = {
   project?: string;

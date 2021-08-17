@@ -54,7 +54,7 @@ export default function DownloadTemplate({
           {'  '}
           {download.error}
         </Text>
-        <Markdown>{`  \`URL\`: ${url}`}</Markdown>
+        <Markdown>{`\`URL\`: ${url}`}</Markdown>
       </Box>
     );
   }

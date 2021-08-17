@@ -5,11 +5,11 @@ import ProjectConfig, { ProjectConfigValues } from './ProjectConfig';
 import ProjectDir from './ProjectDir';
 import TemplateInfo from './TemplateInfo';
 import DownloadTemplate from './DownloadTemplate';
+import ExtractTemplate from './ExtractTemplate';
 import { Wizard, Step } from '../../components/Wizard';
 import useGitConfig from '../../hooks/useGitConfig';
 import useProjectDir from '../../hooks/useProjectDir';
 import useFetchTemplate from '../../hooks/useFetchTemplate';
-import path from 'path';
 
 type Props = {
   dir: string;
@@ -17,7 +17,7 @@ type Props = {
 };
 
 export default function Project({ dir, template }: Props): JSX.Element {
-  const [config, setConfig] = useState<ProjectConfigValues | undefined>();
+  const [config, setConfig] = useState<ProjectConfigValues>();
   const [archivePath, setArchivePath] = useState<string>();
   const history = useHistory();
   const { exit } = useApp();
@@ -65,10 +65,7 @@ export default function Project({ dir, template }: Props): JSX.Element {
           />
         </Step>
         <Step index={4} name="Extract Template">
-          <Text>
-            <Text color="red">𐄂</Text> Extracting template{' '}
-            {archivePath && path.basename(archivePath)}
-          </Text>
+          {archivePath && <ExtractTemplate src={archivePath} dest={dir} />}
         </Step>
         <Step index={5} name="Apply Config">
           <Text>

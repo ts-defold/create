@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { Box, Text } from 'ink';
-import useFileDownload from '../../hooks/useFileDownload';
-import type { WizardSteps } from '../../components/Wizard';
 import Spinner from 'ink-spinner';
+import type { WizardSteps } from '../../components/Wizard';
 import Markdown from '../../components/Markdown';
+import useFileDownload from '../../hooks/useFileDownload';
 
 type Props = WizardSteps & {
   url: string;

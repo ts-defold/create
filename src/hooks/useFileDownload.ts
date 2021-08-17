@@ -30,7 +30,9 @@ export default function useFileDownload(url: string, file = ''): FileInfo {
     (async () => {
       const req = await fetch(url);
       if (req.status === 200) {
-        const dest = file ? file : (await tmp.file()).path;
+        const dest = file
+          ? file
+          : (await tmp.file({ postfix: '.zip', keep: true })).path;
         const stream = fs.createWriteStream(dest);
 
         //* total size
@@ -55,15 +57,16 @@ export default function useFileDownload(url: string, file = ''): FileInfo {
 
         //* complete
         req.body.on('end', () => {
-          stream.close();
-          if (pending) {
-            setDownload((a) => ({
-              ...a,
-              isLoading: false,
-              complete: true,
-              progress: a.total > 0 ? a.total : a.progress,
-            }));
-          }
+          stream.end(() => {
+            if (pending) {
+              setDownload((a) => ({
+                ...a,
+                isLoading: false,
+                complete: true,
+                progress: a.total > 0 ? a.total : a.progress,
+              }));
+            }
+          });
         });
       } else {
         if (pending) {

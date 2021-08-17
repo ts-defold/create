@@ -31,6 +31,7 @@
   },
   "homepage": "https://github.com/ts-defold/create#readme",
   "devDependencies": {
+    "@types/adm-zip": "^0.4.34",
     "@types/ink": "^2.0.3",
     "@types/ink-big-text": "^1.2.1",
     "@types/ink-gradient": "^2.0.1",
@@ -41,6 +42,7 @@
     "@types/nodegit": "^0.27.3",
     "@types/react": "^17.0.17",
     "@types/react-router": "^5.1.16",
+    "@types/rimraf": "^3.0.1",
     "@types/semver": "^7.3.8",
     "@types/tmp": "^0.2.1",
     "@types/yargs": "^17.0.2",
@@ -55,6 +57,7 @@
     "typescript": "^4.3.5"
   },
   "dependencies": {
+    "adm-zip": "^0.5.5",
     "final-form": "^4.20.2",
     "ink": "^3.0.9",
     "ink-big-text": "^1.2.0",
@@ -67,6 +70,7 @@
     "react": "^17.0.2",
     "react-final-form": "^6.5.3",
     "react-router": "^5.2.0",
+    "rimraf": "^3.0.2",
     "semver": "^7.3.5",
     "tmp": "^0.2.1",
     "tmp-promise": "^3.0.2",

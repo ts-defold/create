@@ -42,6 +42,7 @@
     "@types/react": "^17.0.17",
     "@types/react-router": "^5.1.16",
     "@types/semver": "^7.3.8",
+    "@types/tmp": "^0.2.1",
     "@types/yargs": "^17.0.2",
     "@typescript-eslint/eslint-plugin": "^4.4.0",
     "@typescript-eslint/parser": "^4.4.0",
@@ -67,6 +68,8 @@
     "react-final-form": "^6.5.3",
     "react-router": "^5.2.0",
     "semver": "^7.3.5",
+    "tmp": "^0.2.1",
+    "tmp-promise": "^3.0.2",
     "yargs": "^17.1.0"
   },
   "overrides": {

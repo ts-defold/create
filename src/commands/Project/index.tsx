@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { Box, Text, useApp } from 'ink';
-import Spinner from 'ink-spinner';
 import { useParams, useHistory } from 'react-router';
-
 import ProjectConfig, { ProjectConfigValues } from './ProjectConfig';
 import ProjectDir from './ProjectDir';
 import TemplateInfo from './TemplateInfo';
+import DownloadTemplate from './DownloadTemplate';
 import { Wizard, Step } from '../../components/Wizard';
 import useGitConfig from '../../hooks/useGitConfig';
 import useProjectDir from '../../hooks/useProjectDir';
 import useFetchTemplate from '../../hooks/useFetchTemplate';
+import path from 'path';
 
 type Props = {
   dir: string;
@@ -18,6 +18,7 @@ type Props = {
 
 export default function Project({ dir, template }: Props): JSX.Element {
   const [config, setConfig] = useState<ProjectConfigValues | undefined>();
+  const [archivePath, setArchivePath] = useState<string>();
   const history = useHistory();
   const { exit } = useApp();
   const { step } = useParams<{ step?: string }>();
@@ -57,16 +58,16 @@ export default function Project({ dir, template }: Props): JSX.Element {
           />
         </Step>
         <Step index={3} name="Download Template">
-          <Text>
-            <Text color="cyanBright">
-              <Spinner type="hamburger" />
-            </Text>{' '}
-            Downloading template
-          </Text>
+          <DownloadTemplate
+            url={templateInfo.url}
+            onDownloaded={(f) => setArchivePath(f)}
+            onCompletion={onWizardNext}
+          />
         </Step>
         <Step index={4} name="Extract Template">
           <Text>
-            <Text color="red">𐄂</Text> Extracting template
+            <Text color="red">𐄂</Text> Extracting template{' '}
+            {archivePath && path.basename(archivePath)}
           </Text>
         </Step>
         <Step index={5} name="Apply Config">

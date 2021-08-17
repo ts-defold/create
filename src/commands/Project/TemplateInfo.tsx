@@ -1,6 +1,6 @@
+import React, { useEffect } from 'react';
 import { Box, Text } from 'ink';
 import Spinner from 'ink-spinner';
-import React from 'react';
 import Markdown from '../../components/Markdown';
 import type { WizardSteps } from '../../components/Wizard';
 import type { TemplateInfo } from '../../hooks/useFetchTemplate';
@@ -14,6 +14,12 @@ export default function TemplateInfo({
   active,
   onCompletion,
 }: Props): JSX.Element {
+  useEffect(() => {
+    if (active && !template.isLoading) {
+      onCompletion?.(template.found);
+    }
+  }, [template, active]);
+
   //* Check to see if template is valid
   if (template.isLoading) {
     return (
@@ -27,7 +33,6 @@ export default function TemplateInfo({
       </Box>
     );
   } else if (!template.found) {
-    if (active) onCompletion?.(false);
     return (
       <Box flexDirection="column">
         <Text>
@@ -49,7 +54,6 @@ export default function TemplateInfo({
   }
 
   //* Template is valid
-  if (active) onCompletion?.(true);
   return (
     <Text>
       <Text color="green">✓</Text> Using project template{' '}

@@ -1,6 +1,6 @@
+import React, { useEffect } from 'react';
 import { Box, Text } from 'ink';
 import Spinner from 'ink-spinner';
-import React from 'react';
 import type { WizardSteps } from '../../components/Wizard';
 import type { ProjectDirInfo } from '../../hooks/useProjectDir';
 
@@ -13,6 +13,16 @@ export default function ProjectDir({
   active,
   onCompletion,
 }: Props): JSX.Element {
+  useEffect(() => {
+    if (active && !project.isLoading) {
+      if (project.exists || !project.isEmpty) {
+        onCompletion?.(false);
+      } else {
+        onCompletion?.(true);
+      }
+    }
+  }, [project, active]);
+
   //* Check if project directory is valid
   if (project.isLoading) {
     return (
@@ -26,7 +36,6 @@ export default function ProjectDir({
       </Box>
     );
   } else if (project.exists || !project.isEmpty) {
-    if (active) onCompletion?.(false);
     return (
       <Box flexDirection="column">
         <Text>
@@ -41,7 +50,6 @@ export default function ProjectDir({
   }
 
   //* Project directory is valid
-  if (active) onCompletion?.(true);
   return (
     <Text>
       <Text color="green">✓</Text> Creating new project in{' '}

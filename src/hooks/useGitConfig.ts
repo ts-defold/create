@@ -10,6 +10,8 @@ export default function useGitConfig(): Return {
   });
 
   useEffect(() => {
+    let pending = true;
+
     (async () => {
       try {
         const config = await nodegit.Config.openDefault();
@@ -17,11 +19,15 @@ export default function useGitConfig(): Return {
           user: (await config.getStringBuf('user.name')).toString(),
           email: (await config.getStringBuf('user.email')).toString(),
         };
-        setConfig(cfg);
+        if (pending) setConfig(cfg);
       } catch (e) {
         //! ignore
       }
     })();
+
+    return () => {
+      pending = false;
+    };
   }, []);
 
   return config;

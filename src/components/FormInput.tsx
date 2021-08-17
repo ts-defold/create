@@ -6,7 +6,7 @@ type Props = React.ComponentProps<typeof TextInput> & {
   onBlur?: () => void;
 };
 
-export default function InputText({
+export default function FormInput({
   onFocus,
   onBlur,
   ...props

@@ -3,7 +3,7 @@ import React from 'react';
 
 type Props = React.PropsWithChildren<unknown>;
 
-export default function InputError({ children }: Props): JSX.Element {
+export default function FormError({ children }: Props): JSX.Element {
   return (
     <Box>
       <Text color="red">{children}</Text>

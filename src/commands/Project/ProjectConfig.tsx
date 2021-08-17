@@ -3,8 +3,8 @@ import { Box, Text } from 'ink';
 import Spinner from 'ink-spinner';
 import { Form, Field } from 'react-final-form';
 import semver from 'semver';
-import InputText from '../../components/InputText';
-import InputError from '../../components/InputError';
+import FormInput from '../../components/FormInput';
+import FormError from '../../components/FormError';
 import type { WizardSteps } from '../../components/Wizard';
 import type { ProjectDirInfo } from '../../hooks/useProjectDir';
 
@@ -121,7 +121,7 @@ export default function ProjectConfig({
                         {`${label}: `}
                       </Text>
                       {activeField === index ? (
-                        <InputText
+                        <FormInput
                           {...input}
                           tabComplete
                           placeholder={placeholder}
@@ -153,7 +153,7 @@ export default function ProjectConfig({
                     </Box>
                     {meta.error && meta.touched && !meta.pristine && (
                       <Box paddingLeft={2}>
-                        <InputError>{meta.error}</InputError>
+                        <FormError>{meta.error}</FormError>
                       </Box>
                     )}
                   </Box>

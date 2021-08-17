@@ -33,24 +33,34 @@ export default function TemplateInfo({
       </Box>
     );
   } else if (!template.found) {
-    return (
-      <Box flexDirection="column">
+    if (template.rate) {
+      return (
         <Text>
-          <Text color="red">𐄂</Text> The template{' '}
-          <Text color="red">{template}</Text> was not found!
+          <Text color="red">𐄂</Text> The api is rate limited, try again in{' '}
+          <Text color="yellow">{Math.ceil(template.rate / 60)}</Text>{' '}
+          {Math.ceil(template.rate / 60) > 1 ? 'minutes' : 'minute'}
         </Text>
-        {template.match ? (
-          <Text color="grey">
-            Are you looking for <Text color="yellow">{template.match}</Text>{' '}
-            instead?
+      );
+    } else {
+      return (
+        <Box flexDirection="column">
+          <Text>
+            <Text color="red">𐄂</Text> The template{' '}
+            <Text color="red">{template.name}</Text> was not found!
           </Text>
-        ) : (
-          <Markdown>
-            `Try:` https://github.com/search?q=tsd-template&type=repositories
-          </Markdown>
-        )}
-      </Box>
-    );
+          {template.match ? (
+            <Text color="grey">
+              Are you looking for <Text color="yellow">{template.match}</Text>{' '}
+              instead?
+            </Text>
+          ) : (
+            <Markdown>
+              `Try:` https://github.com/search?q=tsd-template&type=repositories
+            </Markdown>
+          )}
+        </Box>
+      );
+    }
   }
 
   //* Template is valid

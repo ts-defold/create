@@ -43,7 +43,7 @@ export default function ProjectDir({
           <Text color="red">{project.relativePath || '.'}</Text> already exists!
         </Text>
         <Text color="grey">
-          {'  '}Please choose an empty or new directory for your project.
+          Please choose an empty or new directory for your project.
         </Text>
       </Box>
     );

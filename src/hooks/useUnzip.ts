@@ -41,7 +41,8 @@ export default function useUnzip(
         const root =
           (parts.length > 1 ? parts.slice(0, parts.length - 1).join('/') : '') +
           '/';
-        entries.forEach(async (entry) => {
+        for (let i = 0; i < entries.length; i++) {
+          const entry = entries[i];
           if (
             entry.entryName.startsWith(root) &&
             entry.entryName !== root &&
@@ -56,7 +57,7 @@ export default function useUnzip(
             }
             zip.extractEntryTo(entry.entryName, destPath, false, false);
           }
-        });
+        }
         if (cleanup) rimraf(src, () => null);
         if (pending) {
           setUnzip((z) => ({ ...z, isLoading: false, complete: true }));

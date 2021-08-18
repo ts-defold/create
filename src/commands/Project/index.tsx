@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Box, Text, useApp } from 'ink';
+import { Box, useApp } from 'ink';
 import { useParams, useHistory } from 'react-router';
+import ProjectApply from './ProjectApply';
 import ProjectConfig, { ProjectConfigValues } from './ProjectConfig';
 import ProjectDir from './ProjectDir';
 import TemplateInfo from './TemplateInfo';
@@ -65,17 +66,22 @@ export default function Project({ dir, template }: Props): JSX.Element {
           />
         </Step>
         <Step index={4} name="Extract Template">
-          {archivePath && <TemplateUnzip src={archivePath} dest={dir} />}
+          {archivePath && (
+            <TemplateUnzip
+              src={archivePath}
+              dest={dir}
+              onCompletion={onWizardNext}
+            />
+          )}
         </Step>
         <Step index={5} name="Apply Config">
-          <Text>
-            <Text color="red">𐄂</Text> Applying Configuration
-          </Text>
-        </Step>
-        <Step index={6} name="Init Git">
-          <Text>
-            <Text color="red">𐄂</Text> Initializing Git Repository
-          </Text>
+          {config && (
+            <ProjectApply
+              dir={dir}
+              config={config}
+              onCompletion={onWizardNext}
+            />
+          )}
         </Step>
       </Wizard>
     </Box>

@@ -10,7 +10,7 @@ type Props = WizardSteps & {
   remove?: boolean;
 };
 
-export default function ExtractTemplate({
+export default function TemplateUnzip({
   src,
   dest,
   remove,

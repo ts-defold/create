@@ -10,7 +10,7 @@ type Props = WizardSteps & {
   onDownloaded?: (file: string) => void;
 };
 
-export default function DownloadTemplate({
+export default function TemplateDownload({
   url,
   active,
   onDownloaded,

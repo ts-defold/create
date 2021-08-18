@@ -4,8 +4,8 @@ import { useParams, useHistory } from 'react-router';
 import ProjectConfig, { ProjectConfigValues } from './ProjectConfig';
 import ProjectDir from './ProjectDir';
 import TemplateInfo from './TemplateInfo';
-import DownloadTemplate from './DownloadTemplate';
-import ExtractTemplate from './ExtractTemplate';
+import TemplateDownload from './TemplateDownload';
+import TemplateUnzip from './TemplateUnzip';
 import { Wizard, Step } from '../../components/Wizard';
 import useGitConfig from '../../hooks/useGitConfig';
 import useProjectDir from '../../hooks/useProjectDir';
@@ -58,14 +58,14 @@ export default function Project({ dir, template }: Props): JSX.Element {
           />
         </Step>
         <Step index={3} name="Download Template">
-          <DownloadTemplate
+          <TemplateDownload
             url={templateInfo.url}
             onDownloaded={(f) => setArchivePath(f)}
             onCompletion={onWizardNext}
           />
         </Step>
         <Step index={4} name="Extract Template">
-          {archivePath && <ExtractTemplate src={archivePath} dest={dir} />}
+          {archivePath && <TemplateUnzip src={archivePath} dest={dir} />}
         </Step>
         <Step index={5} name="Apply Config">
           <Text>

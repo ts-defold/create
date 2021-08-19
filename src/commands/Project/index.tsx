@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Box, useApp } from 'ink';
+import { Box, Text, useApp } from 'ink';
 import { useParams, useHistory } from 'react-router';
 import ProjectApply from './ProjectApply';
 import ProjectConfig, { ProjectConfigValues } from './ProjectConfig';
 import ProjectDir from './ProjectDir';
+import ProjectInstall from './ProjectInstall';
 import TemplateInfo from './TemplateInfo';
 import TemplateDownload from './TemplateDownload';
 import TemplateUnzip from './TemplateUnzip';
@@ -11,6 +12,7 @@ import { Wizard, Step } from '../../components/Wizard';
 import useGitConfig from '../../hooks/useGitConfig';
 import useProjectDir from '../../hooks/useProjectDir';
 import useFetchTemplate from '../../hooks/useFetchTemplate';
+import path from 'path';
 
 type Props = {
   dir: string;
@@ -30,15 +32,14 @@ export default function Project({ dir, template }: Props): JSX.Element {
   const templateInfo = useFetchTemplate(template);
 
   const onWizardNext = (success: boolean) => {
+    if (currentStep == 7) exit();
+
     if (success) {
       history.push(`/project/${currentStep + 1}`);
     } else {
-      exit();
+      exit(new Error());
     }
   };
-
-  // TODO: Use project config values
-  void config;
 
   return (
     <Box flexDirection="column">
@@ -82,6 +83,14 @@ export default function Project({ dir, template }: Props): JSX.Element {
               onCompletion={onWizardNext}
             />
           )}
+        </Step>
+        <Step index={6} name="Install Dependencies">
+          <ProjectInstall dir={dir} onCompletion={onWizardNext} />
+        </Step>
+        <Step index={7} name="Next Steps">
+          <Text>cd {project.relativePath}</Text>
+          <Text>npm run dev</Text>
+          <Text>Open app/game.project in Defold</Text>
         </Step>
       </Wizard>
     </Box>

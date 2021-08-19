@@ -32,6 +32,7 @@
   "homepage": "https://github.com/ts-defold/create#readme",
   "devDependencies": {
     "@types/adm-zip": "^0.4.34",
+    "@types/cross-spawn": "^6.0.2",
     "@types/ink": "^2.0.3",
     "@types/ink-big-text": "^1.2.1",
     "@types/ink-gradient": "^2.0.1",
@@ -58,6 +59,7 @@
   },
   "dependencies": {
     "adm-zip": "^0.5.5",
+    "cross-spawn": "^7.0.3",
     "final-form": "^4.20.2",
     "ink": "^3.0.9",
     "ink-big-text": "^1.2.0",

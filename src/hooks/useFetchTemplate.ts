@@ -69,7 +69,7 @@ export default function useFetchTemplate(template: string): TemplateInfo {
         }
       }
 
-      if (pending) setArchive((a) => ({ ...a, payload }));
+      if (pending) setArchive((a) => ({ ...a, ...payload }));
     })();
 
     return () => {

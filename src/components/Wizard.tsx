@@ -1,4 +1,5 @@
 import React from 'react';
+//import { Static } from 'ink';
 
 type Props = React.PropsWithChildren<{
   step: number;

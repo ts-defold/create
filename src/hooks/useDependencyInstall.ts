@@ -54,23 +54,22 @@ export default function useDependencyInstall(dir: string): InstallInfo {
       }
     }
 
-    //child.stdout?.on('data', process);
     child.stderr?.on('data', process);
 
     child.on('close', (code) => {
       if (code === 0) {
-        setInstall({
-          ...install,
+        setInstall((i) => ({
+          ...i,
           isLoading: false,
           complete: true,
-        });
+        }));
       } else {
-        setInstall({
-          ...install,
+        setInstall((i) => ({
+          ...i,
           isLoading: false,
           complete: false,
           errors: stderr.split('\n'),
-        });
+        }));
       }
     });
 

@@ -12,7 +12,6 @@ import { Wizard, Step } from '../../components/Wizard';
 import useGitConfig from '../../hooks/useGitConfig';
 import useProjectDir from '../../hooks/useProjectDir';
 import useFetchTemplate from '../../hooks/useFetchTemplate';
-import path from 'path';
 
 type Props = {
   dir: string;

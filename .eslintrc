@@ -15,10 +15,13 @@
   },
   "plugins": [
       "@typescript-eslint",
-      "prettier"
+      "prettier",
+      "react-hooks"
   ],
   "rules": {
       "no-var": "error",
-      "@typescript-eslint/semi": "error"
+      "@typescript-eslint/semi": "error",
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn"
   }
 }

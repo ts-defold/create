@@ -80,7 +80,7 @@ export default function useUnzip(
     return () => {
       pending = false;
     };
-  }, [src, dest]);
+  }, [src, dest, cleanup]);
 
   return unzip;
 }

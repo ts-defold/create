@@ -37,7 +37,7 @@ export default function useFetchTemplate(template: string): TemplateInfo {
             ? template
             : `tsd-template-${template}`)) ||
         'tsd-template';
-      const payload = { ...archive, isLoading: false };
+      const payload: Partial<TemplateInfo> = { isLoading: false };
 
       const req = await fetch(
         `https://api.github.com/search/repositories?q=${slug}&sort=stars`
@@ -69,7 +69,7 @@ export default function useFetchTemplate(template: string): TemplateInfo {
         }
       }
 
-      if (pending) setArchive(payload);
+      if (pending) setArchive((a) => ({ ...a, payload }));
     })();
 
     return () => {

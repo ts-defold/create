@@ -18,7 +18,7 @@ export default function TemplateInfo({
     if (active && !template.isLoading) {
       onCompletion?.(template.found);
     }
-  }, [template, active]);
+  }, [template, active, onCompletion]);
 
   //* Check to see if template is valid
   if (template.isLoading) {

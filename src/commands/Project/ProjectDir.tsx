@@ -21,7 +21,7 @@ export default function ProjectDir({
         onCompletion?.(true);
       }
     }
-  }, [project, active]);
+  }, [project, active, onCompletion]);
 
   //* Check if project directory is valid
   if (project.isLoading) {

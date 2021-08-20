@@ -28,7 +28,7 @@ export default function TemplateDownload({
         onCompletion?.(false);
       }
     }
-  }, [download, active]);
+  }, [download, active, onCompletion, onDownloaded]);
 
   if (download.isLoading) {
     return (

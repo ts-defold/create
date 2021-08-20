@@ -23,7 +23,7 @@ export default function ProjectInstall({
         onCompletion?.(false);
       }
     }
-  }, [install, active]);
+  }, [install, active, onCompletion]);
 
   if (install.isLoading) {
     return (

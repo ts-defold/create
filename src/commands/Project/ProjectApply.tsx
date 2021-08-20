@@ -26,7 +26,7 @@ export default function ProjectApply({
         onCompletion?.(true);
       }
     }
-  }, [apply, active]);
+  }, [apply, active, onCompletion]);
 
   if (apply.isLoading) {
     return (

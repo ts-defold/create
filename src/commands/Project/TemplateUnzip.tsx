@@ -27,7 +27,7 @@ export default function TemplateUnzip({
         onCompletion?.(false);
       }
     }
-  }, [unzip, active]);
+  }, [unzip, active, onCompletion]);
 
   if (unzip.isLoading) {
     return (

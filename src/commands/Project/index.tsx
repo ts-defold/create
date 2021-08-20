@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Box, Text, useApp } from 'ink';
+import { Box, useApp } from 'ink';
 import { useParams, useHistory } from 'react-router';
 import ProjectApply from './ProjectApply';
 import ProjectConfig, { ProjectConfigValues } from './ProjectConfig';
 import ProjectDir from './ProjectDir';
 import ProjectInstall from './ProjectInstall';
+import ProjectReady from './ProjectReady';
 import TemplateInfo from './TemplateInfo';
 import TemplateDownload from './TemplateDownload';
 import TemplateUnzip from './TemplateUnzip';
@@ -86,10 +87,8 @@ export default function Project({ dir, template }: Props): JSX.Element {
         <Step index={6} name="Install Dependencies">
           <ProjectInstall dir={dir} onCompletion={onWizardNext} />
         </Step>
-        <Step index={7} name="Next Steps">
-          <Text>cd {project.relativePath}</Text>
-          <Text>npm run dev</Text>
-          <Text>Open app/game.project in Defold</Text>
+        <Step index={7} name="Project Ready">
+          <ProjectReady project={project.relativePath} />
         </Step>
       </Wizard>
     </Box>

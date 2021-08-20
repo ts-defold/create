@@ -17,7 +17,7 @@ export default function useDependencyInstall(dir: string): InstallInfo {
   });
 
   useEffect(() => {
-    let stdout: string, stderr: string;
+    let output: string;
     const child = spawn(
       'npm',
       ['ci', '--no-audit', '--no-progress', '--verbose'],
@@ -28,9 +28,9 @@ export default function useDependencyInstall(dir: string): InstallInfo {
     );
 
     function process(data: Buffer) {
-      stdout += data.toString();
-      const lines = stdout.split('\n');
-      if (!stdout.endsWith('\n')) stdout = lines.pop() ?? '';
+      output += data.toString();
+      const lines = output.split('\n');
+      if (!output.endsWith('\n')) output = lines.pop() ?? '';
       const module = lines
         .map((l) =>
           l.replace(
@@ -68,7 +68,10 @@ export default function useDependencyInstall(dir: string): InstallInfo {
           ...i,
           isLoading: false,
           complete: false,
-          errors: stderr.split('\n'),
+          errors: [
+            'Failed to install dependencies',
+            'run npm install for details',
+          ],
         }));
       }
     });

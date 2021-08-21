@@ -5,7 +5,7 @@ import App from './App';
 
 yargs
   .scriptName('')
-  .usage('Usage: **npm** init @ts-defold <project-directory> `[options]`')
+  .usage('Usage: **npm** init @ts-defold <project-directory> -- `[options]`')
   .positional('project-directory', {
     describe: 'Empty directory to initialize project in',
     type: 'string',

@@ -60,7 +60,7 @@
   },
   "dependencies": {
     "adm-zip": "^0.5.5",
-    "cli-spinners": "2.6.0",
+    "cli-spinners": "^2.6.0",
     "cross-spawn": "^7.0.3",
     "final-form": "^4.20.2",
     "ink": "^3.0.9",

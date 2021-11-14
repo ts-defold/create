@@ -1,12 +1,19 @@
 # @ts-defold/create
-> npm init @ts-defold &lt;project-directory&gt;
+<a href="https://github.com/ts-defold/create/actions/workflows/main.yml"><img alt="CI" src="https://github.com/ts-defold/create/actions/workflows/main.yml/badge.svg"></a>
+<a href="https://discord.gg/eukcq5m"><img alt="Chat with us!" src="https://img.shields.io/discord/766898804896038942.svg?colorB=7581dc&logo=discord&logoColor=white"></a>
 
 <p align="center">
   <img src="docs/hero.png">
 </p>
 
 ```sh
-> npm init @ts-defold my-game --template war-battles
+> npm init @ts-defold <project-directory>
+```
+```sh
+> npm init @ts-defold my-game -- --template war-battles
+```
+```sh
+> npx @ts-defold/create my-game --template yagames
 ```
 ```sh
 > npx @ts-defold/create my-game --serve
@@ -18,5 +25,5 @@ By default the CLI will search for templates on [github](https://github.com/sear
 As an alternative, you may also supply a zip archive either from a local path or remote url to seed the project with.
 
 ## Dev Server
-Currently the dev server is a pretty wrapper around `tstl --watch`. It adds a dash more verbosity and colorful feedback on what files are being compiled.
+👷 - The dev server will be a pretty wrapper around `tstl --watch`. It adds a dash more verbosity and colorful feedback on what files are being compiled.
 

@@ -14,12 +14,18 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        node: [14.x, 16.x]
+        node: [14.x]
         experimental: [false]
         include:
           - node: 16.x
             os: ubuntu-latest
             experimental: true
+          - node: 16.x
+            os: macos-latest
+            experimental: false
+          - node: 16.x
+            os: windows-latest
+            experimental: false
         
     steps:
       - uses: actions/checkout@v2

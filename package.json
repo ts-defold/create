@@ -62,7 +62,7 @@
     "adm-zip": "^0.5.5",
     "cross-spawn": "^7.0.3",
     "final-form": "^4.20.2",
-    "ink": "^3.0.9",
+    "ink": "^3.2.0",
     "ink-big-text": "^1.2.0",
     "ink-gradient": "^2.0.0",
     "ink-markdown": "^1.0.1",

@@ -12,12 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Node 14
+      - name: Setup Node 16
         uses: actions/setup-node@v1
         with:
-          node-version: 14
+          node-version: 16
       - name: Install dependencies
-        run: npm install
+        run: npm ci
       - name: Lint src
         run: npm run lint
       - name: Build
@@ -28,6 +28,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Setup Node 16
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
       - name: Install dependencies
         run: npm install
       - name: Publish

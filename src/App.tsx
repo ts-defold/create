@@ -40,6 +40,7 @@ const CLI = ({ path, data }: Props) => {
   );
 };
 
-export default function App(path: string, data?: unknown): void {
-  render(<CLI path={path} data={data} />);
+export default function App(path: string, data?: unknown): Promise<void> {
+  const instance = render(<CLI path={path} data={data} />);
+  return instance.waitUntilExit();
 }

@@ -88,7 +88,10 @@ export default function Project({ dir, template }: Props): JSX.Element {
           <ProjectInstall dir={dir} onCompletion={onWizardNext} />
         </Step>
         <Step index={7} name="Project Ready">
-          <ProjectReady project={project.relativePath} />
+          <ProjectReady
+            project={project.relativePath}
+            onCompletion={onWizardNext}
+          />
         </Step>
       </Wizard>
     </Box>

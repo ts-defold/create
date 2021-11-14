@@ -25,21 +25,26 @@ yargs
     'Generate a new project',
     () => null,
     async (argv) => {
-      if (argv._.length == 1) {
-        if (argv.serve) {
-          App(`/serve`);
+      try {
+        if (argv._.length == 1) {
+          if (argv.serve) {
+            await App(`/serve`);
+          } else {
+            await App(`/project`, {
+              dir: path.resolve(
+                process.env.INIT_CWD ?? process.cwd(),
+                argv._[0].toString()
+              ),
+              template: argv.template,
+            });
+          }
         } else {
-          App(`/project`, {
-            dir: path.resolve(
-              process.env.INIT_CWD ?? process.cwd(),
-              argv._[0].toString()
-            ),
-            template: argv.template,
-          });
+          await App('/help', { help: await yargs.getHelp() });
         }
-      } else {
-        App('/help', { help: await yargs.getHelp() });
+      } catch (e) {
+        //* ignore
       }
+      process.exit(0);
     }
   )
   .version()

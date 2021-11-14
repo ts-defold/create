@@ -10,8 +10,7 @@
   ],
   "scripts": {
     "prepublishOnly": "npm run lint && npm run build",
-    "build": "npm run clean && tsc",
-    "clean": "tsc --build --clean",
+    "build": "rollup -c",
     "dev": "npm run build && DEV=true node ./bin/create.js",
     "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx ."
   },
@@ -49,12 +48,15 @@
     "@types/yargs": "^17.0.2",
     "@typescript-eslint/eslint-plugin": "^4.4.0",
     "@typescript-eslint/parser": "^4.4.0",
+    "esbuild": "^0.13.13",
     "eslint": "^7.10.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "jest": "^26.5.3",
     "prettier": "^2.3.2",
+    "rollup": "^2.60.0",
+    "rollup-plugin-esbuild": "^4.6.0",
     "ts-jest": "^26.4.1",
     "typescript": "^4.3.5"
   },

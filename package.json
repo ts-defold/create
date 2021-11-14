@@ -67,7 +67,7 @@
     "ink-gradient": "^2.0.0",
     "ink-markdown": "^1.0.1",
     "ink-spinner": "^4.0.3",
-    "ink-text-input": "github:thejustinwalsh/ink-text-input#feat/tab-complete",
+    "ink-text-input": "git+https://git@github.com/thejustinwalsh/ink-text-input#7bc3ae94fcd1a1c1fad0eb7ce9b00881c5df6e13",
     "node-fetch": "^2.6.1",
     "nodegit": "^0.27.0",
     "react": "^17.0.2",

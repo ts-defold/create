@@ -75,11 +75,12 @@ export default function useProjectApply(
           setInfo((i) => ({ ...i, isLoading: false, complete: true }));
         }
       } catch (e) {
+        const error = e as Error;
         if (pending) {
           setInfo((i) => ({
             ...i,
             isLoading: false,
-            error: e.message,
+            error: error.message,
           }));
         }
       }

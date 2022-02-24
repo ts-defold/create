@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import nodegit from 'nodegit';
+import simpleGit, { SimpleGit } from 'simple-git';
 
 type Return = { user: string; email: string };
 
@@ -14,10 +14,10 @@ export default function useGitConfig(): Return {
 
     (async () => {
       try {
-        const config = await nodegit.Config.openDefault();
+        const git: SimpleGit = simpleGit();
         const cfg = {
-          user: (await config.getStringBuf('user.name')).toString(),
-          email: (await config.getStringBuf('user.email')).toString(),
+          user: (await git.getConfig('user.name')).value || '',
+          email: (await git.getConfig('user.email')).value || '',
         };
         if (pending) setConfig(cfg);
       } catch (e) {

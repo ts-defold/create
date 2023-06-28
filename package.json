@@ -68,7 +68,7 @@
     "ink-gradient": "^2.0.0",
     "ink-markdown": "^1.0.1",
     "ink-spinner": "^4.0.3",
-    "ink-text-input": "git+https://git@github.com/thejustinwalsh/ink-text-input#7bc3ae94fcd1a1c1fad0eb7ce9b00881c5df6e13",
+    "ink-text-input": "git+https://git@github.com/thejustinwalsh/ink-text-input#54f082fda67ed54e9d608c8e643d12948d36b8d5",
     "node-fetch": "^2.6.1",
     "react": "^17.0.2",
     "react-final-form": "^6.5.3",

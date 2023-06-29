@@ -20,7 +20,7 @@ jobs:
         include:
           - node: 18.x
             os: ubuntu-latest
-            experimental: true
+            experimental: false
           - node: 18.x
             os: macos-latest
             experimental: false

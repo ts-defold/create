@@ -61,7 +61,11 @@ export function Step({
 }: StepProps): JSX.Element {
   const childrenWithProps = React.Children.map(children, (child) => {
     if (React.isValidElement(child)) {
-      return React.cloneElement(child, { step: index, active, complete });
+      return React.cloneElement(child as React.ReactElement, {
+        step: index,
+        active,
+        complete,
+      });
     }
     return child;
   });

@@ -4,7 +4,6 @@ import { Box, render } from 'ink';
 
 import Help from './commands/Help';
 import Project from './commands/Project';
-import Serve from './commands/Serve';
 
 type Props = {
   path: string;
@@ -31,9 +30,6 @@ const CLI = ({ path, data }: Props) => {
           <Route path="/project/:step?">
             <Project dir={dir} template={template} />
           </Route>
-          <Route path="/serve">
-            <Serve />
-          </Route>
         </Switch>
       </MemoryRouter>
     </Box>
@@ -42,5 +38,5 @@ const CLI = ({ path, data }: Props) => {
 
 export default function App(path: string, data?: unknown): Promise<void> {
   const instance = render(<CLI path={path} data={data} />);
-  return instance.waitUntilExit();
+  return path === '/help' ? Promise.resolve() : instance.waitUntilExit();
 }

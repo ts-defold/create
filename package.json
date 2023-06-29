@@ -1,6 +1,6 @@
 {
   "name": "@ts-defold/create",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "@ts-defold scaffolding and cli utility",
   "main": "lib/index.js",
   "bin": "bin/create.js",

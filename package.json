@@ -29,10 +29,6 @@
     "url": "https://github.com/ts-defold/create/issues"
   },
   "homepage": "https://github.com/ts-defold/create#readme",
-  "publishConfig": {
-    "access": "public",
-    "@ts-defold:registry": "https://registry.npmjs.org"
-  },
   "devDependencies": {
     "@types/adm-zip": "^0.4.34",
     "@types/cross-spawn": "^6.0.2",

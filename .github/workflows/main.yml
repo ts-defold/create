@@ -15,22 +15,22 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        node: [14.x]
+        node: [16.x]
         experimental: [false]
         include:
-          - node: 16.x
+          - node: 18.x
             os: ubuntu-latest
             experimental: true
-          - node: 16.x
+          - node: 18.x
             os: macos-latest
             experimental: false
-          - node: 16.x
+          - node: 18.x
             os: windows-latest
             experimental: false
         
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Node 16
+      - name: Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
@@ -47,10 +47,11 @@ jobs:
     needs: bundle
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Node 14
+      - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: 14
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies
         run: npm install
       - name: Publish

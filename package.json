@@ -31,7 +31,7 @@
   "homepage": "https://github.com/ts-defold/create#readme",
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org"
+    "@ts-defold:registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
     "@types/adm-zip": "^0.4.34",

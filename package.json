@@ -11,7 +11,7 @@
   "scripts": {
     "prepublishOnly": "npm run lint && npm run bundle",
     "bundle": "rollup -c",
-    "dev": "npm run build && DEV=true node ./bin/create.js",
+    "dev": "npm run bundle && DEV=true node ./bin/create.js",
     "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx ."
   },
   "repository": {

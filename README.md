@@ -19,4 +19,4 @@ By default the CLI will search for templates on [Github](https://github.com/sear
 As an alternative, you may also supply a zip archive either from a local path or remote url to seed the project with.
 
 ## Give Kudos
-:star: If the ts-defold project is useful, inspiring, or fun for you, please give this Github repo a star.
+:star: If the ts-defold project is useful, inspiring, or fun for you, please give this [Github repo](https://github.com/thinknathan/tsd-create) a star. :star:
